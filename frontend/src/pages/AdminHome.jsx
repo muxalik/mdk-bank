@@ -4,7 +4,7 @@ import api from '../utils/api'
 
 const AdminHome = () => {
   const { user, logout } = useAuth()
-  const [transactions, setTransactions] = useState()
+  const [transactions, setTransactions] = useState([])
 
   const userRef = useRef()
   const accountRef = useRef()
@@ -150,7 +150,7 @@ const AdminHome = () => {
           </div>
         </div>
       </div>
-      {transactions && (
+      {transactions.length !== 0 && (
         <div className='rounded-[12px] border border-gray-200 shadow-md py-[30px] px-[20px]'>
           <ul className='space-y-[15px]'>
             {transactions?.map((transaction) => (
